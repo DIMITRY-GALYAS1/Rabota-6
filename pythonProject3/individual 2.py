@@ -3,31 +3,32 @@
 import sys
 
 if __name__ == '__main__':
-    a = list(map(float, input("Введите значения U: ").split()))
+    A = list(map(float, input("Введите значения U: ").split()))
     m = 999999999999
     n = 0
     count = 1
-    if not a:
+    if not A:
         print("Заданный список пуст", file=sys.stderr)
         exit(1)
-    for item in a:
+    for item in A:
         if item > 0:
             count *= item
     print('Произведение положительных элементов', count)
-    for i in range(len(a)):
-        if m > a[i]:
-            m = a[i]
+    for i, a in enumerate(A):
+        if m > A[i]:
+            m = A[i]
             n = i
-    c = a[:n]
+    c = A[:n]
     s = sum(c)
     print("Сумма перед минимальным числом", s)
-    z = len(c)
     chet = []
     nechet = []
-    for i in range(z):
+    for i, a in enumerate(A):
         if i % 2 == 0:
-            chet.append(c[i])
+            chet.append(A[i])
         else:
-            nechet.append(c[i])
-    print('По возрастанию', chet)
-    print('По убыванию', nechet)
+            nechet.append(A[i])
+    chet.sort()
+    nechet.sort()
+    print('По возрастанию на чётных местах', chet)
+    print('По возрастанию на нечетных местах', nechet)
