@@ -9,8 +9,6 @@ if __name__ == '__main__':
     D = list([random.randint(20, 30) for i in range(7)])
     V = list([random.randint(20, 30) for i in range(7)])
     G = []
-    i = 0
     for (u, d, v) in zip(U, D, V):
-        G.append((U[i]+D[i]+V[i])/3)
-        i += 1
+        G.append((u+d+v)/3)
     print("Среднее значение температуры по дням недели: ", G)
